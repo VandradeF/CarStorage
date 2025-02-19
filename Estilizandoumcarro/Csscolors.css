@@ -1,11 +1,11 @@
 Csscolors
 .banner {
-    width: 100%; /* Largura total da tela */
-    overflow: hidden; /* Esconde conteúdo que ultrapassa as bordas */
+    width: 100%; 
+    overflow: hidden; 
 }
 
 .banner img {
-    width: 100%; /* Largura total da tela */
-    display: block; /* Evita espaços em branco abaixo da imagem */
-    height: auto; /* Altura automática, mantendo a proporção */
+    width: 100%; 
+    display: block; 
+    height: auto; 
 }
