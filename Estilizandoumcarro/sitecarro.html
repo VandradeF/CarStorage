@@ -150,7 +150,7 @@
             z-index: -1; 
         }
 
-        /* Estilo para o efeito de piscada de luz */
+        
         @keyframes lightBlink {
             0% { opacity: 1; }
             50% { opacity: 0.2; }
@@ -238,34 +238,34 @@
             de: "Erkunde die Zukunft der Luxusautos"
         };
 
-        let currentLanguage = 'pt'; // Idioma inicial
+        let currentLanguage = 'pt'; 
 
         function updateLanguage(language) {
             heroText.textContent = translations[language];
             currentLanguage = language;
         }
 
-        // Mudar a frase automaticamente a cada 3 segundos
+        
         let languageIndex = 0;
         const languageList = ['pt', 'en', 'es', 'de'];
 
         function changeLanguageAutomatically() {
-            languageIndex = (languageIndex + 1) % languageList.length; // Ciclo através dos idiomas
-            heroText.classList.add("blink"); // Adiciona o efeito de piscada
+            languageIndex = (languageIndex + 1) % languageList.length; 
+            heroText.classList.add("blink"); 
 
             setTimeout(() => {
                 updateLanguage(languageList[languageIndex]);
-                heroText.classList.remove("blink"); // Remove o efeito de piscada após a transição
-            }, 500); // Espera a piscada durar 500ms
+                heroText.classList.remove("blink"); 
+            }, 500); 
         }
 
-        setInterval(changeLanguageAutomatically, 3000); // Mudar a cada 3 segundos
+        setInterval(changeLanguageAutomatically, 3000); 
 
         languageSelect.addEventListener("change", (e) => {
-            updateLanguage(e.target.value); // Atualiza a língua com a seleção manual
+            updateLanguage(e.target.value); 
         });
 
-        // Definir idioma inicial
+        
         updateLanguage(currentLanguage);
     </script>
 
