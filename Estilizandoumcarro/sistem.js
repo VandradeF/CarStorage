@@ -36,13 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateContent(language) {
         const selectedTexts = texts[language];
 
-        // Atualizando os textos
+        
         document.querySelector(".hero h2").textContent = selectedTexts.heroText;
         document.querySelector("#about h2").textContent = selectedTexts.aboutTitle;
         document.querySelector("#about p").textContent = selectedTexts.aboutText;
         document.querySelector(".footer p").innerHTML = selectedTexts.footer;
 
-        // Atualizando os carros
+        
         const carCards = document.querySelectorAll(".car-card");
         const carTitles = selectedTexts.cars;
 
