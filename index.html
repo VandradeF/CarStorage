@@ -49,21 +49,6 @@
             color: #e50914;
         }
 
-        .language-selector {
-            background-color: #222;
-            padding: 5px;
-            border-radius: 5px;
-        }
-
-        .language-selector select {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 5px;
-            font-size: 1rem;
-            border-radius: 5px;
-        }
-
         .hero {
             height: 100vh;
             background: url('https://source.unsplash.com/1600x900/?luxury-car') center/cover no-repeat;
@@ -150,7 +135,6 @@
             z-index: -1; 
         }
 
-        /* Estilo para o efeito de piscada de luz */
         @keyframes lightBlink {
             0% { opacity: 1; }
             50% { opacity: 0.2; }
@@ -160,59 +144,258 @@
         .hero h2.blink {
             animation: lightBlink 1s ease-in-out infinite;
         }
-    </style>
+        .menu-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .logo {
+            max-height: 150px;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+            width: 200px;
+            box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background: #e50914;
+        }
+        
+        .aba1 {
+    display: block;
+    width: 120px; 
+    height: auto;
+    cursor: pointer;
+    margin: 10px auto;
+    position: fixed; 
+    right: 0; 
+    top: 200px; 
+}
+
+#aba1 {
+    width: 120px;
+    height: auto;
+    transition: transform 0.3s ease-in-out, opacity 0.3s;
+    position: fixed;
+    right: 50px; 
+    top: 10px;
+}
+
+#aba1:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+
+body, html {
+    overflow-x: hidden; 
+}
+.form-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('fundo-animado.gif') center/cover no-repeat; 
+        }
+
+        .form-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: #222;
+            color: white;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: #e50914;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .submit-btn:hover {
+            background: #b20710;
+        }
+
+</style>
 </head>
 <body>
-
     <header>
         <h1 id="site-title">AutoLux</h1>
-        <img src="AUTOLUXlogo.gif" alt="AutoLux Logo" class="logo">
-        <nav>
-            <a href="#cars" id="nav-cars">Carros</a>
-            <a href="#about" id="nav-about">Sobre</a>
-            <a href="#contact" id="nav-contact">Contato</a>
-        </nav>
-        <div class="language-selector">
-            <label for="language-select">Idioma: </label>
-            <select id="language-select">
-                <option value="pt">Português</option>
-                <option value="en">English</option>
-                <option value="es">Español</option>
-                <option value="de">Deutsch</option>
-            </select>
+        <div class="menu-container">
+            <img src="AUTOLUXabas.gif" alt="AutoLux Logo" class="logo" id="menuIcon">
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="#about">Sobre</a>
+                <a href="#cars">Carros Esportivos</a>
+                <a href="#family-cars">Carros Família</a>
+                <a href="#electric-cars">Carros Elétricos</a>
+                <a href="#sports-family">Esportivos Família</a>
+                <a href="#contact">Contato</a>
+            </div>
         </div>
+        <div>
+            <div class="aba1"></div>
+            <img src="AUTOLUXlogo.gif" alt="AUTOLUXabas" class="aba1" id="aba1">
+        </div>
+        <script>
+            const menuIcon = document.getElementById('menuIcon');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+        
+            menuIcon.addEventListener('click', () => {
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+            });
+        
+            document.addEventListener('click', (event) => {
+                if (!menuIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.style.display = 'none';
+                }
+            });
+        </script>
     </header>
-
+    
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'pt',
+          includedLanguages: 'en,es,fr,de',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+      }
+    </script>
+    
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
     <section class="hero">
         <h2 id="hero-text">Explore o Futuro dos Carros de Luxo</h2>
         <div id="background-3d">
             <iframe src='https://my.spline.design/pushittothelimit-f95916a2db98ae474e342b4e9956c6f6/' frameborder='0' width='100%' height='100%'></iframe>
         </div>
     </section>
+    <section class="form-section">
+        <div class="form-container">
+            <h2>Solicite seu Carro dos Sonhos</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Número de Contato:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="car-type">Tipo de Carro Desejado:</label>
+                    <select id="car-type" name="car-type" required>
+                        <option value="" disabled selected>Selecione uma opção</option>
+                        <option value="esportivo">Esportivo</option>
+                        <option value="familiar">Familiar</option>
+                        <option value="luxo">Luxuoso Familiar</option>
+                        <option value="comum">Comuns</option>
+                        <option value="eletrico">Elétricos</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Enviar Pedido</button>
+            </form>
+        </div>
+    </section>
+    
+   
+    
 
     <section id="cars" class="cars-section">
-        <h3 id="cars-title">Carros de Luxo</h3>
+        <h1 id="cars-title"></h1>
+        <div class="car-card">
+            <img src="https://source.unsplash.com/1600x900/?luxury-car1" alt="Luxury Car 1">
+            <div class="details">
+                <h1>Ferrari LaFerrari</h1>
+                <p>Desempenho e design de outro mundo.</p>
+                <a href="#" class="cta-btn">Ver mais</a>
+            </div>
+        </div>
+    <h2 id="cars-title"></h2>
+        <div class="car-card">
+            <img src="https://source.unsplash.com/1600x900/?luxury-car1" alt="Luxury Car 1">
+            <div class="details">
+                <h2>Ferrari LaFerrari</h2>
+                <p>Desempenho e design de outro mundo.</p>
+                <a href="#" class="cta-btn">Ver mais</a>
+            </div>
+        </div>
+        
+        <h3 id="cars-title"></h3>
         <div class="car-card">
             <img src="https://source.unsplash.com/1600x900/?luxury-car1" alt="Luxury Car 1">
             <div class="details">
                 <h3>Ferrari LaFerrari</h3>
                 <p>Desempenho e design de outro mundo.</p>
-                <a href="#" class="cta-btn">Ver mais</a>
-            </div>
-        </div>
-        <div class="car-card">
-            <img src="https://source.unsplash.com/1600x900/?luxury-car2" alt="Luxury Car 2">
-            <div class="details">
-                <h3>Bugatti Chiron</h3>
-                <p>A máxima expressão de velocidade e luxo.</p>
-                <a href="#" class="cta-btn">Ver mais</a>
-            </div>
-        </div>
-        <div class="car-card">
-            <img src="https://source.unsplash.com/1600x900/?luxury-car3" alt="Luxury Car 3">
-            <div class="details">
-                <h3>Lamborghini Aventador</h3>
-                <p>Elegância e desempenho em um só carro.</p>
                 <a href="#" class="cta-btn">Ver mais</a>
             </div>
         </div>
@@ -226,6 +409,9 @@
     <footer class="footer">
         <p>&copy; 2024 AutoLux. Todos os direitos reservados.</p>
     </footer>
+</body>
+</html>
+
 
     <script>
         const heroText = document.getElementById("hero-text");
@@ -238,36 +424,38 @@
             de: "Erkunde die Zukunft der Luxusautos"
         };
 
-        let currentLanguage = 'pt'; // Idioma inicial
+        let currentLanguage = 'pt'; 
 
         function updateLanguage(language) {
             heroText.textContent = translations[language];
             currentLanguage = language;
         }
 
-        // Mudar a frase automaticamente a cada 3 segundos
+        
         let languageIndex = 0;
         const languageList = ['pt', 'en', 'es', 'de'];
 
         function changeLanguageAutomatically() {
-            languageIndex = (languageIndex + 1) % languageList.length; // Ciclo através dos idiomas
-            heroText.classList.add("blink"); // Adiciona o efeito de piscada
+            languageIndex = (languageIndex + 1) % languageList.length; 
+            heroText.classList.add("blink"); 
 
             setTimeout(() => {
                 updateLanguage(languageList[languageIndex]);
-                heroText.classList.remove("blink"); // Remove o efeito de piscada após a transição
+                heroText.classList.remove("blink"); 
             }, 500); // Espera a piscada durar 500ms
         }
 
-        setInterval(changeLanguageAutomatically, 3000); // Mudar a cada 3 segundos
+        setInterval(changeLanguageAutomatically, 3000); 
 
         languageSelect.addEventListener("change", (e) => {
-            updateLanguage(e.target.value); // Atualiza a língua com a seleção manual
+            updateLanguage(e.target.value); 
         });
 
         // Definir idioma inicial
         updateLanguage(currentLanguage);
     </script>
+    <div id="google_translate_element"></div>
 
-</body>
+    </body>
 </html>
+
