@@ -22,6 +22,12 @@ Acesse a pasta do projeto:
 
 cd AutoLux
 
+![gifo1](https://github.com/user-attachments/assets/8994bb12-e292-4392-aab8-e4b48b2ba05c)
+
+estética neutra e elegante, API mudança de lingua da página.
+
+![gifo2](https://github.com/user-attachments/assets/f72dff39-a084-4c3a-8d58-c60260bfef15)
+
 
 
 
